@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记事本</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <div id="app">
+        <input id="text" type="text" v-model="addValue" @keyup.enter="add" placeholder="请输入内容">
+        <ul>
+            <li v-for="(item,index) in list" id="List">
+                <span id="text2">{{ index+1 }}.{{ item }}</span>
+                <span @click="remove(index)" id="x">x</span>
+            </li>
+        </ul>
+        <span v-show="list.length!=0" id="note">共计<strong>{{ list.length }}</strong>条笔记</span>
+        <span v-show="list.length!=0" @click="clear" id="Clear">清空</span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
